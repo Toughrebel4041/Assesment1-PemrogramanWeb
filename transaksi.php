@@ -113,6 +113,40 @@ if(isset($_POST['submit'])){
         ?>
         </div>
     </div>
+    <br>
+    <br>
+    <div class="row">
+    <div class="col-sm-2">
+    <h5>Sub Total</h5>
+    </div>
+    <div class="col-sm-2">
+    <p><?php 
+    $SubTotal = ($Harga*$QTY1)+($Harga*$QTY2)+($Harga*$QTY3);
+    echo $SubTotal;
+    ?></p>
+</div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+    <h5>Discount</h5>
+    </div>
+    <div class="col-sm-2">
+    <p><?php 
+    $Disc = $SubTotal-($SubTotal*0.05);
+    echo $Disc;
+    ?></p>
+</div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+    <h5>Total Bayar</h5>
+    </div>
+    <div class="col-sm-2">
+    <p><?php 
+    $Uang - $Disc;
+    ?></p>
+</div>
+</div>
 </div>
     </body>
     </html>
