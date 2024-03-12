@@ -1,171 +1,149 @@
 <?php
-$Cust = array("Wawan LPG 12 Kilo", "Kurnia Basreng Jeruk Nipis", "Naufal Pulpen Pilot", "Hesti Ban Serep", "Hendri Alpenliebe Lollipop");
+    $Cust = array("Wawan LPG 12 Kilo", "Kurnia Basreng Jeruk Nipis", "Naufal Pulpen Pilot", "Hesti Ban Serep", "Hendri Alpenliebe Lollipop");
 
-$Barang = array("Mie Instan", "Sabun Mandi", "Shampoo", "Sendal Jepit", "Roti", "Buku Tulis", "Susu Kotak", "Minyak Goreng", "Ice Cream", "Baterai");
-$Harga = array("Mie Instan"=>3000, "Sabun Mandi"=>3500, "Shampoo"=>1000, "Sendal Jepit"=>11000, "Roti"=>12000, "Buku Tulis"=>5500, "Susu Kotak"=>6000, "Minyak Goreng"=>13000, "Ice Cream"=>11000, "Baterai"=>16000);
-$QTY1 = 0;
-$QTY2 = 0;
-$QTY3 = 0;
+    $Barang = array("Mie Instan", "Sabun Mandi", "Shampoo", "Sendal Jepit", "Roti", "Buku Tulis", "Susu Kotak", "Minyak Goreng", "Ice Cream", "Baterai");
+    $Harga = array("Mie Instan"=>3000, "Sabun Mandi"=>3500, "Shampoo"=>1000, "Sendal Jepit"=>11000, "Roti"=>12000, "Buku Tulis"=>5500, "Susu Kotak"=>6000, "Minyak Goreng"=>13000, "Ice Cream"=>11000, "Baterai"=>16000);
+    $QTY1 = 0;
+    $QTY2 = 0;
+    $QTY3 = 0;
 
-include 'header.php';
+    include 'header.php';
 
-if(isset($_POST['submit'])){
-    $Kode = $_POST['kode'];
-    $Tanggal = $_POST['date'];
-    $Customer = $_POST['customer'];
-    $Product1 = $_POST['product1'];
-    $Product2 = $_POST['product2'];
-    $Product3 = $_POST['product3'];
-    $QTY1 = $_POST['QTY1'];
-    $QTY2 = $_POST['QTY2'];
-    $QTY3 = $_POST['QTY3'];
-    $Member = $_POST['member'];
-    $Uang = $_POST['bayar'];
+    if(isset($_POST['btnSubmit'])){
+        $Kode = $_POST['kode'];
+        $Tanggal = $_POST['date'];
+        $Customer = $_POST['customer'];
+        $Product1 = $_POST['product1'];
+        $Product2 = $_POST['product2'];
+        $Product3 = $_POST['product3'];
+        $QTY1 = $_POST['QTY1'];
+        $QTY2 = $_POST['QTY2'];
+        $QTY3 = $_POST['QTY3'];
+        $Member = $_POST['member'];
+        $Uang = $_POST['bayar'];
 ?>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
     <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2">
-            <p>Kode-Transaksi</p>
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Kode-Transaksi</p>
+            </div>
+            <div class="col-sm-2">
+                <?php
+                echo $Kode;
+                ?>
+            </div>
         </div>
-        <div class="col-sm-2">
-            <?php
-            echo $Kode;
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Tanggal Transaksi</p>
+            </div>
+            <div class="col-sm-2">
+            <?echo
+                echo $Tanggal;
             ?>
+            </div>
         </div>
-    </div>
-    <div class="row">
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Customer</p>
+            </div>
+            <div class="col-sm-2">
+                    <?php
+                    echo $Customer;
+                    ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Barang 1</p>
+            </div>
+            <div class="col-sm-2" style="margin-right:50px">
+                    <?php
+                    echo $Product1;
+                    ?>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Barang 2</p>
+            </div>
+            <div class="col-sm-2" style="margin-right:50px">
+            <?php
+            echo $Product2;
+            ?>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Barang 3</p>
+            </div>
+            <div class="col-sm-2" style="margin-right:50px">
+            <?php
+            echo $Product3;
+            ?>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Uang Pembayaran</p>
+            </div>
+            <div class="col-sm-2">
+            Rp. <?php $Uang; ?>
+        </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Member?</p>
+            </div>
+            <div class="col-sm-2">
+            <?php
+            echo $Member;
+            ?>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
         <div class="col-sm-2">
-            <p>Tanggal Transaksi</p>
+        <h5>Sub Total</h5>
         </div>
         <div class="col-sm-2">
-        <?echo
-            echo $Tanggal;
-        ?>
+        <p><?php 
+        $SubTotal = ($Harga*$QTY1)+($Harga*$QTY2)+($Harga*$QTY3);
+        echo $SubTotal;
+        ?></p>
         </div>
-    </div>
-    <div class="row">
+        </div>
+        <div class="row">
         <div class="col-sm-2">
-            <p>Customer</p>
-        </div>
-        <div class="col-sm-2">
-                <?php
-                echo $Customer;
-                ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2">
-            <p>Barang 1</p>
-        </div>
-        <div class="col-sm-2" style="margin-right:50px">
-                <?php
-                echo $Product1;
-                ?>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-sm-2">
-            <p>Barang 2</p>
-        </div>
-        <div class="col-sm-2" style="margin-right:50px">
-        <?php
-        echo $Product2;
-        ?>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-sm-2">
-            <p>Barang 3</p>
-        </div>
-        <div class="col-sm-2" style="margin-right:50px">
-        <?php
-        echo $Product3;
-        ?>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-sm-2">
-            <p>Uang Pembayaran</p>
+        <h5>Discount</h5>
         </div>
         <div class="col-sm-2">
-        Rp. <?php $Uang; ?>
-    </div>
-    </div>
-    <br>
-    <div class="row">
+        <p><?php 
+        $Disc = $SubTotal-($SubTotal*0.05);
+        echo $Disc;
+        ?></p>
+        </div>
+        </div>
+        <div class="row">
         <div class="col-sm-2">
-            <p>Member?</p>
+        <h5>Total Bayar</h5>
         </div>
         <div class="col-sm-2">
-        <?php
-        echo $Member;
-        ?>
+        <p><?php 
+        $Uang - $Disc;
+        ?></p>
+        </div>
         </div>
     </div>
-    <br>
-    <br>
-    <div class="row">
-    <div class="col-sm-2">
-    <h5>Sub Total</h5>
-    </div>
-    <div class="col-sm-2">
-    <p><?php 
-    $SubTotal = ($Harga*$QTY1)+($Harga*$QTY2)+($Harga*$QTY3);
-    echo $SubTotal;
-    ?></p>
-</div>
-</div>
-<div class="row">
-    <div class="col-sm-2">
-    <h5>Discount</h5>
-    </div>
-    <div class="col-sm-2">
-    <p><?php 
-    $Disc = $SubTotal-($SubTotal*0.05);
-    echo $Disc;
-    ?></p>
-</div>
-</div>
-<div class="row">
-    <div class="col-sm-2">
-    <h5>Total Bayar</h5>
-    </div>
-    <div class="col-sm-2">
-    <p><?php 
-    $Uang - $Disc;
-    ?></p>
-</div>
-</div>
-</div>
-    </body>
-    </html>
 
-    <?php
-}
-
-else {
+<?php
+    } else {
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <title>Transaksi Page</title>
-</head>
-<body>
     <center><h1>Laman Transaksi Kasir</h1></center>
     <form action="" method="post">
         <div class="container-fluid">
@@ -273,14 +251,10 @@ else {
                     <input name="reset" type="reset" value="Cancel" style="background-color:red;color:white ;width: auto; padding: 10px 18px; margin: 10px 5px;">
                 </div>
             </div>
-</center>
+        </center>
         </div>
     </form>
-</body>
-</html>
-
 <?php
-}
-include 'footer.php';
-
+    }
+    include 'footer.php';
 ?>

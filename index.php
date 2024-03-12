@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assesment 1 Project</title>
-</head>
-<body>
-    
 <?php
+include 'header.php';
 if(isset($_POST['submit'])){
         $user=$_POST['username'];
         $pass=$_POST['password'];
@@ -25,12 +17,7 @@ if(isset($_POST['submit'])){
     } else {
 
         ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
+<style>
 button {   
        width: 100%;  
         padding: 15px;   
@@ -66,11 +53,7 @@ input[name="submit"]{width: auto;
         margin: 10px 5px;
         background-color: green;  }
 </style>   
-</head>
-<body>
-            <?php
-include 'header.php';
-            ?>
+
 <center> <h1> Login Form Kasir </h1> </center>   
     <form action="transaksi.php" method="post">  
         <div class="container">   
@@ -83,12 +66,6 @@ include 'header.php';
         </div>   
     </form>
     <?php
-    include 'footer.php';
+        }
+        include 'footer.php';
     ?>
-    </body>
-    </html>
-        <?php
-    }
-?>
-</body>
-</html>
